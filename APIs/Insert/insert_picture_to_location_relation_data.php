@@ -41,7 +41,6 @@ $query = "CALL InsertGroup('$location_id','$image_data')";
 $res = mysqli_query($con, $query);
 if ($res) {
     $arr["success"] = "true";
-    $arr["group_id"] = mysqli_insert_id($con);
 } else {
     $arr["success"] = "false";
     $arr["error"] = "Insertion failed";
