@@ -30,7 +30,7 @@ $query = "CALL InsertCountryData('$country_name')";
 $res = mysqli_query($con, $query);
 if($res){
     $arr["success"] = "true";
-    $arr["country_name"] = mysqli_insert_id($con);
+    $arr["country_id"] = mysqli_insert_id($con);
 }
 else{
     $arr["success"] = "false";
