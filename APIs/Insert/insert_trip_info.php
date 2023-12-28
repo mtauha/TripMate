@@ -18,6 +18,7 @@ if(isset($_POST["trip_name"])){
     $trip_name = $_POST["trip_name"];
 } else {
     $arr["success"] = "false";
+    $arr["error"] = "$trip_name incorrect";
     echo json_encode($arr);
     return;
 }
@@ -26,6 +27,7 @@ if(isset($_POST["source_city_id"])){
     $source_city_id = $_POST["source_city_id"];
 } else {
     $arr["success"] = "false";
+    $arr["error"] = "$source_city_id incorrect";
     echo json_encode($arr);
     return;
 }
@@ -34,6 +36,7 @@ if(isset($_POST["destination_city_id"])){
     $destination_city_id = $_POST["destination_city_id"];
 } else {
     $arr["success"] = "false";
+    $arr["error"] = "$destination_city_id incorrect";
     echo json_encode($arr);
     return;
 }
@@ -42,6 +45,7 @@ if(isset($_POST["start_date"])){
     $start_date = $_POST["start_date"];
 } else {
     $arr["success"] = "false";
+    $arr["error"] = "$start_date incorrect";
     echo json_encode($arr);
     return;
 }
@@ -50,6 +54,7 @@ if(isset($_POST["trip_days"])){
     $trip_days = $_POST["trip_days"];
 } else {
     $arr["success"] = "false";
+    $arr["error"] = "$trip_days incorrect";
     echo json_encode($arr);
     return;
 }
@@ -58,6 +63,7 @@ if(isset($_POST["trip_budget"])){
     $trip_budget = $_POST["trip_budget"];
 } else {
     $arr["success"] = "false";
+    $arr["error"] = "$trip_budget incorrect";
     echo json_encode($arr);
     return;
 }
@@ -66,6 +72,7 @@ if(isset($_POST["no_of_persons"])){
     $no_of_persons = $_POST["no_of_persons"];
 } else {
     $arr["success"] = "false";
+    $arr["error"] = "$no_of_persons incorrect";
     echo json_encode($arr);
     return;
 }
@@ -81,6 +88,7 @@ if(mysqli_stmt_affected_rows($stmt) > 0){
     $arr["trip_id"] = mysqli_insert_id($con);
 } else {
     $arr["success"] = "false";
+    $arr["error"] = "Insertion failed";
 }
 
 echo json_encode($arr);
