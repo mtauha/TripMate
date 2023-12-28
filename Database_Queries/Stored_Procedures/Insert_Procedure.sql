@@ -21,29 +21,32 @@ BEGIN
     );
 END //
 
-CREATE PROCEDURE GetPasswordByEmail
-(IN p_email VARCHAR(40), 
-OUT p_password VARCHAR(20))
+
+
+-- Chat Table:
+CREATE PROCEDURE InsertChat(
+    IN p_group_id INT,
+    IN p_user_id INT,
+    IN p_message VARCHAR(500) NOT NULL,
+    IN p_image_id INT,
+    IN p_chat_time TIME
+)
 BEGIN
-    DECLARE v_password VARCHAR(20);
+    -- Check if user_id exists in the user table, if not, insert it
+    INSERT IGNORE INTO user (user_id) VALUES (p_user_id);
 
-    SELECT password INTO v_password
-    FROM `user`
-    WHERE user_email = p_email;
+    -- Check if group_id exists in the group table, if not, insert it
+    INSERT IGNORE INTO group (group_id) VALUES (p_group_id);
 
-    SET p_password = v_password;
-END //
+    -- Check if image_id exists in the image table, if not, insert it
+    INSERT IGNORE INTO image (image_id) VALUES (p_image_id);
 
-
-CREATE PROCEDURE addLocationImage
-(IN lct_id INT,
-IN image BLOB)
-BEGIN
-    SET @image_location = lct_id;
-    INSERT INTO image
-    (image_data, image_type)
-    VALUES
-    (image, 'LOCATION');
+    -- Insert data into the chat table
+    INSERT INTO chat (
+        group_id, user_id, message, image_id, chat_time
+    ) VALUES (
+        p_group_id, p_user_id, p_message, p_image_id, p_chat_time
+    );
 END //
 
 
