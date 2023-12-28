@@ -26,7 +26,7 @@ if ($con) {
 
 
 if (!empty($_POST["image_data"])) {
-    $image_data = $_POST["image_data"];
+    $image_data = base64_decode($_POST["image_data"]);
 } else {
     $arr["success"] = "false";
     $arr["error"] = "$image_data incorrect";
