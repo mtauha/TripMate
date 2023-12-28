@@ -12,6 +12,13 @@ CREATE PROCEDURE InsertTrip(
     IN p_no_of_persons INT
 )
 BEGIN
+    -- Check if source_city_id exists in the city table, if not, insert it
+    INSERT IGNORE INTO city (city_id) VALUES (p_source_city_id);
+
+    -- Check if destination_city_id exists in the city table, if not, insert it
+    INSERT IGNORE INTO city (city_id) VALUES (p_destination_city_id);
+
+    -- Insert data into the trip table
     INSERT INTO trip (
         trip_name, source_city_id, destination_city_id, 
         start_date, trip_days, trip_budget, no_of_persons
