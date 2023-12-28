@@ -58,7 +58,7 @@ $query = "CALL InsertGroup('$notification_text','$read_status','$user_id','$grou
 $res = mysqli_query($con, $query);
 if ($res) {
     $arr["success"] = "true";
-    $arr["group_id"] = mysqli_insert_id($con);
+    $arr["notification_id"] = mysqli_insert_id($con);
 } else {
     $arr["success"] = "false";
     $arr["error"] = "Insertion failed";
