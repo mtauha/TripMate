@@ -5,6 +5,13 @@ include "D:\study\Projects\Kotlin\TripMate\APIs\connection.php";
 $arr = [];
 $con = dbConnection();
 
+if (!$con) {
+    $arr["success"] = "false";
+    $arr["message"] = "Connection Error";
+    echo json_encode($arr);
+    return;
+}
+
 // Validate and sanitize the input parameters
 
 if(isset($_POST["country_name"])){

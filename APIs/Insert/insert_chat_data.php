@@ -6,6 +6,13 @@ $arr = [];
 
 $con = dbConnection();
 
+if (!$con) {
+    $arr["success"] = "false";
+    $arr["message"] = "Connection Error";
+    echo json_encode($arr);
+    return;
+}
+
 // Validate and sanitize the input parameters
 $chat_id = isset($_POST["chat_id"]) ? $_POST["chat_id"] : null;
 $group_id = isset($_POST["group_id"]) ? $_POST["group_id"] : null;
