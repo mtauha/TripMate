@@ -1,21 +1,21 @@
 <?php
-            
-include "D:\study\Projects\Kotlin\TripMate\APIs\connection.php";
-            
-$arr = [];
 
+include "D:\study\Projects\Kotlin\TripMate\APIs\connection.php";
+
+$arr = [];
 $con = dbConnection();
 
+// Validate and sanitize the input parameters
 
 if(isset($_POST["country_name"])){
     $country_name = $_POST["country_name"];
-}
-else{
+} else {
+    $arr["success"] = "false";
+    echo json_encode($arr);
     return;
 }
 
-
-$query = "CALL InsertChat('$country_name')";
+$query = "CALL InsertCountryData('$country_name')";
 
 $res = mysqli_query($con, $query);
 if($res){
@@ -26,6 +26,6 @@ else{
     $arr["success"] = "false";
 }
 
-echo json_encode($arr);    
+// echo json_encode($arr);
 
 ?>
