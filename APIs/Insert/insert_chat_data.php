@@ -6,9 +6,12 @@ $arr = [];
 
 $con = dbConnection();
 
-if (!$con) {
-    $arr["success"] = "false";
-    $arr["message"] = "Connection Error";
+if ($con) {
+    $arr["connection"] = "Success";
+    echo json_encode($arr);
+}
+else{
+    $arr["connection"] = "Failed";
     echo json_encode($arr);
     return;
 }
