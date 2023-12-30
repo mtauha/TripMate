@@ -1,8 +1,14 @@
 <?php
 
-function insertUserData($con, $user_email, $password, $first_name, $last_name, $city_id, $profile_picture_id)
+function insertUserData($con, $user_email, $password, $first_name, $last_name, $city_id, $profile_picture_id = 1)
 {
     $arr = [];
+
+    if (empty($con)) {
+        $arr["success"] = false;
+        $arr["error"] = "Connection variable not passed";
+        return json_encode($arr);
+    }
 
     if (!$con) {
         $arr["success"] = false;
@@ -10,24 +16,46 @@ function insertUserData($con, $user_email, $password, $first_name, $last_name, $
         return json_encode($arr);
     }
 
-    if (empty($user_email) || empty($password) || empty($first_name) || empty($last_name) || empty($city_id) || empty($profile_picture_id)) {
+    if (empty($user_email) || empty($password) || empty($first_name) || empty($last_name) || empty($city_id)) {
         $arr["success"] = false;
         $arr["error"] = "Invalid input";
         return json_encode($arr);
     }
 
-    $query = "CALL InsertTrip(?, ?, ?, ?, ?, ?, ?)";
-    $stmt = mysqli_prepare($con, $query);
+    // Use md5 function directly in the SQL query
     $password = md5($password);
-    mysqli_stmt_bind_param($stmt, "sssssss", $user_email, $password, $first_name, $last_name, $city_id, $profile_picture_id);
-    mysqli_stmt_execute($stmt);
 
-    if (mysqli_stmt_affected_rows($stmt) > 0) {
-        $arr["success"] = true;
-        $arr["user_id"] = mysqli_insert_id($con);
+    // Disable foreign key checks for the duration of the session
+    $query = "SET foreign_key_checks = 0;";
+    $result = mysqli_query($con, $query);
+
+    if ($result) {
+        // Call the stored procedure to insert user data
+        $query = "CALL INSERTUSER('$user_email', '$password', '$first_name', '$last_name', '$city_id','$profile_picture_id');";
+        $result = mysqli_query($con, $query);
+
+        if ($result) {
+            // Fetch the result of the last query in the multi-query
+            $lastResult = mysqli_store_result($con);
+
+            if ($lastResult) {
+                $arr["success"] = true;
+                $arr["user_id"] = mysqli_insert_id($con);
+                mysqli_free_result($lastResult);
+            } else {
+                // No result set, consider the last query successful
+                $arr["success"] = true;
+                $arr["user_id"] = $con->insert_id;
+            }
+        } else {
+            // Error in the stored procedure call
+            $arr["success"] = false;
+            $arr["error"] = "Error in query: " . mysqli_error($con);
+        }
     } else {
+        // Error in setting foreign key checks
         $arr["success"] = false;
-        $arr["error"] = "Insertion failed";
+        $arr["error"] = "Error in query: " . mysqli_error($con);
     }
 
     return json_encode($arr);
