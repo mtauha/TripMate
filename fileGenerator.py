@@ -9,20 +9,15 @@ with open(filename, "w") as f:
     f.write(
         """<?php
 
-include "D:\study\Projects\Kotlin\TripMate\APIs\connection.php";
+include "D:\\study\\Projects\\Kotlin\\TripMate\\APIs\\connection.php";
 
 $arr = [];
 
 $con = dbConnection();
 
-if ($con) {
-    $arr["connection"] = "Success";
-    echo json_encode($arr);
-}
-else{
+if ($con->connect_error) {
     $arr["connection"] = "Failed";
-    echo json_encode($arr);
-    return;
+    die("Connection failed: " . $con->connect_error);
 }
 
 ?>"""
