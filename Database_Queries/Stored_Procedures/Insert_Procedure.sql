@@ -1,6 +1,7 @@
+USE tripdb;
 SET @image_location = null;
 
---* Insertion Procedure for trip table
+-- * Insertion Procedure for trip table
 DELIMITER //
 CREATE PROCEDURE InsertTrip(
     IN p_trip_name VARCHAR(50),
@@ -30,7 +31,7 @@ END //
 
 
 
---* Chat Table:
+-- * Chat Table:
 CREATE PROCEDURE InsertChat(
     IN p_group_id INT,
     IN p_user_id INT,
@@ -57,7 +58,7 @@ BEGIN
 END //
 
 
---* Country Table:
+-- * Country Table:
 CREATE PROCEDURE InsertCountry(
     IN p_country_name VARCHAR(50)
 )
@@ -70,7 +71,7 @@ END //
 
 
 
---* City Table:
+-- * City Table:
 CREATE PROCEDURE InsertCity(
     IN p_city_name VARCHAR(60),
     IN p_country_id INT
@@ -87,7 +88,7 @@ BEGIN
 END //
 
 
---* Location Table:
+-- * Location Table:
 CREATE PROCEDURE InsertLocation(
     IN p_city_id INT,
     IN p_location_name VARCHAR(75),
@@ -107,7 +108,7 @@ END //
 
 
 
---* Image Table:
+-- * Image Table:
 CREATE PROCEDURE InsertImage(
     IN p_image_data BLOB,
     IN p_image_type ENUM('LOCATION', 'CHAT', 'PROFILE PICTURE')
@@ -123,7 +124,7 @@ END //
 
 
 
---* User Table:
+-- * User Table:
 CREATE PROCEDURE InsertUser(
     IN p_user_email VARCHAR(40),
     IN p_password VARCHAR(20),
@@ -157,7 +158,7 @@ END //
 
 
 
---* Group Table:
+-- * Group Table:
 CREATE PROCEDURE InsertGroup(
     IN p_group_name VARCHAR(40),
     IN p_trip_id INT
@@ -178,7 +179,7 @@ END //
 
 
 
---* Notification Table:
+-- * Notification Table:
 CREATE PROCEDURE InsertNotification(
     IN p_notification_text VARCHAR(200),
     IN p_read_status BOOLEAN,
@@ -203,7 +204,7 @@ END //
 
 
 
---* Review Table:
+-- * Review Table:
 CREATE PROCEDURE InsertReview(
     IN p_review_id INT,
     IN p_review_text VARCHAR(200),
