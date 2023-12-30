@@ -92,7 +92,7 @@ CREATE TABLE `group`(
     FOREIGN KEY (trip_id) REFERENCES trip (trip_id)
 );
 
-CREATE TABLE user_to_group_relation(
+CREATE TABLE `user_to_group_relation`(
 	user_id INT,
     group_id INT,
     
@@ -106,7 +106,7 @@ CREATE TABLE user_to_group_relation(
     FOREIGN KEY (group_id) REFERENCES `group` (group_id)
 );
 
-CREATE TABLE picture_to_location_relation(
+CREATE TABLE `picture_to_location_relation`(
 	location_id INT,
     image_id INT,
 
