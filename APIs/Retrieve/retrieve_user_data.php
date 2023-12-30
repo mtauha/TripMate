@@ -50,8 +50,8 @@ function retrieveUserData($con, $conditions = array(), $selectColumns = null)
         $arr["query"] = "Failed";
     }
 
-    echo json_encode($arr);
     mysqli_close($con);
+    return json_encode($arr);
 }
 
 

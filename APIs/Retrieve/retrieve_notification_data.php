@@ -50,8 +50,8 @@ function retrieveNotificationData($con, $conditions = array(), $selectColumns = 
         $arr["query"] = "Failed";
     }
 
-    echo json_encode($arr);
     mysqli_close($con);
+    return json_encode($arr);
 }
 
 
