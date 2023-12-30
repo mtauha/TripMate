@@ -7,16 +7,10 @@ $arr = [];
 
 $con = dbConnection();
 
-if ($con) {
-    $arr["connection"] = "Success";
-    echo json_encode($arr);
-}
-else{
+if ($con->connect_error) {
     $arr["connection"] = "Failed";
-    echo json_encode($arr);
-    return;
+    die("Connection failed: " . $con->connect_error);
 }
 
-
-echo json_encode(retrieveUserData($con));
+echo json_encode(retrieveUserData($con, array("user_id" => $_GET["user_id"])));
 ?>
