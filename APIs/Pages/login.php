@@ -16,5 +16,5 @@ if ($con) {
     return;
 }
 
-echo json_encode(retrieveUserData($con, ["user_email" => $_GET["user_email"]], ["password"]));
+echo retrieveUserData($con, ["user_email" => $_GET["user_email"]], ["password"]);
 ?>
