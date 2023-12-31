@@ -20,8 +20,7 @@ $DATE = $_GET["DATE"] ?? "";
 $trip_days = $_GET["trip_days"] ?? "";
 $trip_budget = $_GET["trip_budget"] ?? "";
 $no_of_persons = $_GET["no_of_persons"] ?? "";
-
-
+$email = $_GET["email"] ?? "";
 
 $query_for_sourcecityid_retrieval = "SELECT city_id FROM city WHERE city_name = '$source_city';";
 $result = mysqli_query($con, $query_for_sourcecityid_retrieval);
@@ -47,9 +46,18 @@ if ($result) {
     echo "Error: " . mysqli_error($con);
 }
 
+$query_for_adminid_retrieval = "SELECT user_id FROM user WHERE user_email = '$email';";
+$result = mysqli_query($con, $query_for_adminid_retrieval);
+
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $admin_id = (int) $row['user_id'];
+
+} else {
+    echo "Error: " . mysqli_error($con);
+}
 
 
-
-echo insertTripData($con, $trip_name, $source_city_id, $destination_city_id, $DATE, $trip_days, $trip_budget, $no_of_persons);
+echo insertTripData($con, $trip_name, $source_city_id, $destination_city_id, $DATE, $trip_days, $trip_budget, $no_of_persons, $admin_id);
 
 ?>
