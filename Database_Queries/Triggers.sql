@@ -32,4 +32,26 @@ BEGIN
     (NEW.message, false, NEW.user_id, NEW.group_id);
 END //
 
+
+
+CREATE TRIGGER before_trip_insert
+AFTER INSERT ON trip
+FOR EACH ROW
+BEGIN
+    DECLARE new_group_id INT;
+
+    -- Create a new group for the trip
+    INSERT INTO `group` (group_name, trip_id)
+    VALUES (CONCAT('Group for Trip ', NEW.trip_id), NEW.trip_id);
+
+    -- Get the group_id of the newly created group
+    SET new_group_id = LAST_INSERT_ID();
+
+    -- Add the user who created the trip to the group
+    INSERT INTO user_to_group_relation (user_id, group_id)
+    VALUES (NEW.admin_id, new_group_id);
+END;
+//
+
+
 DELIMITER ;
