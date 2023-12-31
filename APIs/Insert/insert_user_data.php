@@ -1,6 +1,6 @@
 <?php
 
-function insertUserData($con, $user_email, $password, $first_name, $last_name, $city_id, $profile_picture_id = 1)
+function insertUserData($con, $date_of_birth, $phone_number,$user_email, $password, $first_name, $last_name, $city_id, $profile_picture_id = 1)
 {
     $arr = [];
 
@@ -16,7 +16,7 @@ function insertUserData($con, $user_email, $password, $first_name, $last_name, $
         return json_encode($arr);
     }
 
-    if (empty($user_email) || empty($password) || empty($first_name) || empty($last_name) || empty($city_id)) {
+    if (empty($user_email) || empty($password) || empty($phone_number) || empty($date_of_birth) || empty($first_name) || empty($last_name) || empty($city_id)) {
         $arr["success"] = false;
         $arr["error"] = "Invalid input";
         return json_encode($arr);
@@ -31,7 +31,7 @@ function insertUserData($con, $user_email, $password, $first_name, $last_name, $
 
     if ($result) {
         // Call the stored procedure to insert user data
-        $query = "CALL INSERTUSER('$user_email', '$password', '$first_name', '$last_name', '$city_id','$profile_picture_id');";
+        $query = "CALL INSERTUSER('$user_email', '$date_of_birth', $phone_number, '$password', '$first_name', '$last_name', '$city_id','$profile_picture_id');";
         $result = mysqli_query($con, $query);
 
         if ($result) {
