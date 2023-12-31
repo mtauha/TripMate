@@ -15,6 +15,8 @@ if ($con->connect_error) {
 
 
 $user_email = $_GET["user_email"] ?? "";
+$date_of_birth = $_GET["date_of_birth"] ?? "";
+$phone_number = $_GET["phone_number"] ?? "";
 $password = $_GET["password"] ?? "";
 $first_name = $_GET["first_name"] ?? "";
 $last_name = $_GET["last_name"] ?? "";
@@ -33,6 +35,6 @@ if ($result) {
 
 mysqli_free_result($result);
 
-echo insertUserData($con, $user_email, $password, $first_name, $last_name, $city_id, 0);
+echo insertUserData($con, $date_of_birth, $phone_number, $user_email, $password, $first_name, $last_name, $city_id, 0);
 
 ?>
