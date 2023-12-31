@@ -64,20 +64,19 @@ CREATE TABLE `image`(
     PRIMARY KEY (image_id)
 );
 
-CREATE TABLE `user`(
-	user_id INT AUTO_INCREMENT,
-    user_email VARCHAR(40),
-    password VARCHAR(20),
-    first_name VARCHAR(20),
-    last_name VARCHAR(20),
-    city_id INT,
-    profile_picture_id INT,
-    
-	CONSTRAINT user_user_id_constraint 
-    PRIMARY KEY(user_id),
-    
-    CONSTRAINT user_image_id_constraint
-    FOREIGN KEY (profile_picture_id) REFERENCES image (image_id) 
+CREATE TABLE `user` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `date_of_birth` date DEFAULT NULL,
+  `phone_number` int DEFAULT NULL,
+  `user_email` varchar(40) DEFAULT NULL,
+  `password` varchar(35) DEFAULT NULL,
+  `first_name` varchar(20) DEFAULT NULL,
+  `last_name` varchar(20) DEFAULT NULL,
+  `city_id` int DEFAULT NULL,
+  `profile_picture_id` int DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  KEY `profile_picture_id` (`profile_picture_id`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`profile_picture_id`) REFERENCES `image` (`image_id`)
 );
 
 CREATE TABLE `group`(
