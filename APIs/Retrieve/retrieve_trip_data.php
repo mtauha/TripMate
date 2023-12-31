@@ -50,8 +50,7 @@ function retrieveTripData($con, $conditions = array(), $selectColumns = null)
         $arr["query"] = "Failed";
     }
 
-    mysqli_close($con);
-    return json_encode($arr);
+    return $arr;
 }
 
 
