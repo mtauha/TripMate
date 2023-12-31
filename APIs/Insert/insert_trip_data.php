@@ -1,6 +1,6 @@
 <?php
 
-function insertTripData($con, $trip_name, $source_city_id, $destination_city_id, $start_date, $trip_days, $trip_budget, $no_of_persons)
+function insertTripData($con, $trip_name, $source_city_id, $destination_city_id, $start_date, $trip_days, $trip_budget, $no_of_persons, $admin_id)
 {
 
     $arr = [];
@@ -47,8 +47,9 @@ function insertTripData($con, $trip_name, $source_city_id, $destination_city_id,
         return json_encode($arr);
     }
 
+    $result = mysqli_query($con, "SET foreign_key_checks = 0");
 
-    $query = "CALL InsertTrip('$trip_name', $source_city_id, $destination_city_id, '$start_date', $trip_days, $trip_budget, $no_of_persons);";
+    $query = "CALL InsertTrip('$trip_name', $source_city_id, $destination_city_id, '$start_date', $trip_days, $trip_budget, $no_of_persons, $admin_id);";
 
     $result = mysqli_query($con, $query);    
 
