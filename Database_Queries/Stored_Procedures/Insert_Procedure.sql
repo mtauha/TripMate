@@ -10,7 +10,8 @@ CREATE PROCEDURE InsertTrip(
     IN p_start_date DATE,
     IN p_trip_days INT,
     IN p_trip_budget INT,
-    IN p_no_of_persons INT
+    IN p_no_of_persons INT,
+    IN p_admin_id INT
 )
 BEGIN
     -- Check if source_city_id exists in the city table, if not, insert it
@@ -22,11 +23,16 @@ BEGIN
     -- Insert data into the trip table
     INSERT INTO trip (
         trip_name, source_city_id, destination_city_id, 
-        start_date, trip_days, trip_budget, no_of_persons
+        start_date, trip_days, trip_budget, no_of_persons, admin_id
     ) VALUES (
         p_trip_name, p_source_city_id, p_destination_city_id,
-        p_start_date, p_trip_days, p_trip_budget, p_no_of_persons
+        p_start_date, p_trip_days, p_trip_budget, p_no_of_persons, p_admin_id
     );
+
+    -- Get the auto-generated trip_id
+    SET @new_trip_id = LAST_INSERT_ID();
+
+    -- Additional logic here using @new_trip_id
 END //
 
 
