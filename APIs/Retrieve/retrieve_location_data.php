@@ -25,6 +25,7 @@ function retrieveLocationData($con, $conditions = array(), $limit, $selectColumn
     // Join with the country table
     $query .= " INNER JOIN country co ON c.country_id = co.country_id";
 
+
     // Check if conditions are provided
     if (!empty($conditions)) {
         $query .= " WHERE ";
@@ -32,7 +33,7 @@ function retrieveLocationData($con, $conditions = array(), $limit, $selectColumn
         // Build the WHERE clause based on conditions
         $conditionsArr = [];
         foreach ($conditions as $key => $value) {
-            $conditionsArr[] = "$key = '$value'";
+            $conditionsArr[] = "$key LIKE '$value'";
         }
         $query .= implode(" AND ", $conditionsArr);
     }
