@@ -13,6 +13,6 @@ if ($con->connect_error) {
 }
 
 
-echo json_encode(retrieveLocationData($con, array("city_name"=>$_GET["city_name"]), $_GET["limit"]), JSON_PRETTY_PRINT);
+echo json_encode(retrieveLocationData($con, array("city_name"=>$_GET["city_name"]), $_GET["limit"]), JSON_UNESCAPED_UNICODE);
 
 ?>
