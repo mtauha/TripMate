@@ -1,5 +1,7 @@
 <?php
-function editUserData($con, $user_id, $oldAttributes, $newAttributes)
+
+
+function editUserData($con, $user_id, $user_email, $password, $first_name, $last_name, $phone_number, $city_id, $profile_pic_id = null)
 {
     $arr = [];
 
@@ -15,31 +17,38 @@ function editUserData($con, $user_id, $oldAttributes, $newAttributes)
         return json_encode($arr);
     }
 
-    if (empty($user_id) || empty($oldAttributes) || empty($newAttributes)) {
+    if (empty($user_id)) {
         $arr["success"] = false;
         $arr["error"] = "Invalid input";
         return json_encode($arr);
     }
 
-    // Check if user_id exists in the user table
-    $checkQuery = "SELECT * FROM user WHERE user_id = $user_id";
-    $checkResult = mysqli_query($con, $checkQuery);
-
-    if (!$checkResult || mysqli_num_rows($checkResult) == 0) {
-        $arr["success"] = false;
-        $arr["error"] = "User with user_id $user_id not found";
-        return json_encode($arr);
+    if (empty($user_email)) {
+        $user_email = null;
+    }
+    if (empty($password)) {
+        $password = null;
+    }
+    if (empty($first_name)) {
+        $first_name = null;
+    }
+    if (empty($last_name)) {
+        $last_name = null;
+    }
+    if (empty($city_id)) {
+        $city_id = null;
+    }
+    if (empty($profile_pic_id)) {
+        $profile_pic_id = null;
     }
 
-    // Construct the UPDATE query dynamically based on the provided attributes
-    $updateQuery = "UPDATE user SET ";
-    foreach ($newAttributes as $attribute => $value) {
-        $updateQuery .= "$attribute = '$value', ";
-    }
-    $updateQuery = rtrim($updateQuery, ", ") . " WHERE user_id = $user_id";
 
+
+    $updateQuery = "CALL UpdateUser($user_id,'$user_email','$password', '$first_name', '$last_name','$phone_number', $city_id, $profile_pic_id);";
     // Execute the UPDATE query
     $result = mysqli_query($con, $updateQuery);
+
+    print_r($result);
 
     if ($result) {
         $arr["success"] = true;
@@ -51,3 +60,4 @@ function editUserData($con, $user_id, $oldAttributes, $newAttributes)
 
     return json_encode($arr);
 }
+?>
