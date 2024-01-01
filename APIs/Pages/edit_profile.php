@@ -32,7 +32,7 @@ if ($con->connect_error) {
 }
 
 if($city_name){
-    $query_to_retrieve_cityid = "SELECT city_id FROM city WHERE city_name = $city_name";
+    $query_to_retrieve_cityid = "SELECT city_id FROM city WHERE city_name = '$city_name'";
     $city_id_result = $con->query($query_to_retrieve_cityid);
     $city_id = $city_id_result->fetch_assoc()["city_id"];
 } else
