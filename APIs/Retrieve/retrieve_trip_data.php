@@ -4,7 +4,6 @@ function retrieveTripData($con, $conditions = array(), $selectColumns = null)
 {
     $arr = [];
 
-
     if (!$con) {
         $arr["connection"] = "Failed";
         echo json_encode($arr);
@@ -31,7 +30,12 @@ function retrieveTripData($con, $conditions = array(), $selectColumns = null)
         // Build the WHERE clause based on conditions
         $conditionsArr = [];
         foreach ($conditions as $key => $value) {
-            $conditionsArr[] = "$key = '$value'";
+            if (is_array($value)) {
+                // If the value is an array, use the IN clause
+                $conditionsArr[] = "$key IN (" . implode(", ", array_map('intval', $value)) . ")";
+            } else {
+                $conditionsArr[] = "$key = '$value'";
+            }
         }
         $query .= implode(" AND ", $conditionsArr);
     }
