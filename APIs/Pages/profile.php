@@ -30,6 +30,19 @@ if (mysqli_num_rows($result) > 0) {
 $userData = retrieveUserData($con, ["user_id" => $user_id]);
 $userData = json_decode($userData, true);  // Added true to decode as associative array
 
+
+$city_id = $userData["user_data"][0]["city_id"];
+$query_to_retrieve_cityname = "SELECT city_name FROM city WHERE city_id = $city_id";
+$result = mysqli_query($con, $query_to_retrieve_cityname);
+
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $city_name = $row['city_name'];
+} else {
+    echo "Error: " . mysqli_error($con);
+}
+
+
 // Check if user data exists
 if ($userData) {
     // Retrieve image data using the profile_picture_id from user data
