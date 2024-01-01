@@ -1,9 +1,8 @@
 <?php
 
-function retrieveChatData($con, $conditions = array(), $selectColumns = null)
+function retrieveChatData($con, $user_id)
 {
     $arr = [];
-
 
     if (!$con) {
         $arr["connection"] = "Failed";
@@ -12,29 +11,7 @@ function retrieveChatData($con, $conditions = array(), $selectColumns = null)
     }
 
     // Build the SELECT query
-    $query = "SELECT ";
-
-    // Check if specific columns are requested
-    if ($selectColumns) {
-        $query .= implode(", ", $selectColumns);
-    } else {
-        $query .= "*";
-    }
-
-    // Specify the table
-    $query .= " FROM chat";
-
-    // Check if conditions are provided
-    if (!empty($conditions)) {
-        $query .= " WHERE ";
-
-        // Build the WHERE clause based on conditions
-        $conditionsArr = [];
-        foreach ($conditions as $key => $value) {
-            $conditionsArr[] = "$key = '$value'";
-        }
-        $query .= implode(" AND ", $conditionsArr);
-    }
+    $query = "SELECT * FROM chat WHERE user_id = '$user_id'";
 
     $result = mysqli_query($con, $query);
 
@@ -50,9 +27,6 @@ function retrieveChatData($con, $conditions = array(), $selectColumns = null)
         $arr["query"] = "Failed";
     }
 
-    mysqli_close($con);
-    return json_encode($arr);
+    return $arr;
 }
-
-
 ?>
