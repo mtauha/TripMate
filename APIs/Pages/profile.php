@@ -5,6 +5,8 @@ include "D:\\study\\Projects\\Kotlin\\TripMate\\APIs\\Retrieve\\retrieve_user_da
 include "D:\\study\\Projects\\Kotlin\\TripMate\\APIs\\Retrieve\\retrieve_image_data.php";
 
 $arr = [];
+$user_email = $_GET["user_email"];
+
 $con = dbConnection();
 
 if ($con->connect_error) {
@@ -12,8 +14,20 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
+$user_id_query = "SELECT user_id FROM user WHERE user_email = '$user_email'";
+$result = mysqli_query($con, $user_id_query);
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $user_id = $row["user_id"];
+} else {
+    $arr["success"] = false;
+    $arr["error"] = "User with user_email $user_email not found";
+    die(json_encode($arr));
+}
+
+
 // Retrieve user data
-$userData = retrieveUserData($con, ["user_id" => $_GET["user_id"]]);
+$userData = retrieveUserData($con, ["user_id" => $user_id]);
 $userData = json_decode($userData, true);  // Added true to decode as associative array
 
 // Check if user data exists
