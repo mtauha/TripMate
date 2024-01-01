@@ -1,6 +1,6 @@
 <?php
 function dbConnection(){
-    $con = mysqli_connect("localhost", "root", "root", "tripdb");
+    $con = mysqli_connect("localhost", "username", "password", "tripdb");
     return $con;
 }
 
