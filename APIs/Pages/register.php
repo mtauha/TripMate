@@ -33,6 +33,11 @@ if ($result) {
     echo "Error: " . mysqli_error($con);
 }
 
+if ($city_id == "") {
+    $arr["Error"] = "$city_name Not found in database";
+    die(json_encode($arr)); 
+}
+
 mysqli_free_result($result);
 
 echo insertUserData($con, $date_of_birth, $phone_number, $user_email, $password, $first_name, $last_name, $city_id, 0);
