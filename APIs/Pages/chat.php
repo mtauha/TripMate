@@ -4,7 +4,7 @@ include "D:\\study\\Projects\\Kotlin\\TripMate\\APIs\\connection.php";
 include "D:\\study\\Projects\\Kotlin\\TripMate\\APIs\\Retrieve\\retrieve_chat_data.php";
 
 $arr = [];
-$user_id = $_GET["user_id"];
+$trip_id = $_GET["trip_id"];
 
 $con = dbConnection();
 
@@ -13,11 +13,6 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-// $query =
-//     "SELECT chat_id FROM chat
-// WHERE user_id = '$user_id' ";
-
-// Pass the array of trip_id values to retrieveTripData function
-echo json_encode(retrieveChatData($con, $user_id), JSON_PRETTY_PRINT);
+echo json_encode(retrieveChatData($con, $trip_id), JSON_PRETTY_PRINT);
 
 ?>
