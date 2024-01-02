@@ -1,6 +1,6 @@
 <?php
 
-function retrieveChatData($con, $user_id)
+function retrieveChatData($con, $trip_id)
 {
     $arr = [];
 
@@ -11,7 +11,11 @@ function retrieveChatData($con, $user_id)
     }
 
     // Build the SELECT query
-    $query = "SELECT * FROM chat WHERE user_id = $user_id";
+    $query =
+        "SELECT user_id, message, chat_time FROM chat
+NATURAL JOIN `group`
+NATURAL JOIN trip
+WHERE trip_id = 1;";
 
     $result = mysqli_query($con, $query);
 
