@@ -8,7 +8,6 @@ $con = dbConnection();
 
 if ($con) {
     $arr["connection"] = "Success";
-    echo json_encode($arr);
 } else {
     $arr["connection"] = "Failed";
     echo json_encode($arr);
@@ -17,8 +16,8 @@ if ($con) {
 
 
 
-if (!empty($_POST["user_id"])) {
-    $user_id = $_POST["user_id"];
+if (!empty($_GET["user_id"])) {
+    $user_id = $_GET["user_id"];
 } else {
     $arr["success"] = "false";
     $arr["error"] = "$user_id incorrect";
@@ -26,16 +25,23 @@ if (!empty($_POST["user_id"])) {
     return;
 }
 
-if (!empty($_POST["group_id"])) {
-    $group_id = $_POST["group_id"];
+if (!empty($_GET["trip_id"])) {
+    $trip_id = $_GET["trip_id"];
 } else {
     $arr["success"] = "false";
-    $arr["error"] = "$group_id incorrect";
+    $arr["error"] = "$trip_id incorrect";
     echo json_encode($arr);
     return;
 }
 
-$query = "CALL InsertGroup('$user_id','$group_id')";
+$query = "SELECT group_id FROM `group` WHERE trip_id = $trip_id";
+$res = mysqli_query($con, $query);
+
+$group_id = mysqli_fetch_assoc($res)["group_id"];
+$group_id = (int) $group_id;
+
+
+$query = "CALL AddUserToGroup($user_id, $group_id);";
 
 $res = mysqli_query($con, $query);
 if ($res) {
