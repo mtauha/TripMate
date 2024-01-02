@@ -62,7 +62,7 @@ $query = "CALL InsertNote($trip_id, $user_id, '$heading','$body', '$note_date')"
 $res = mysqli_query($con, $query);
 if ($res) {
     $arr["success"] = "true";
-    $arr["chat_id"] = $con->insert_id;
+    $arr["note_id"] = $con->insert_id;
 } else {
     $arr["success"] = "false";
 }
