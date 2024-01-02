@@ -33,7 +33,10 @@ function retrieveLocationData($con, $conditions = array(), $limit, $selectColumn
         // Build the WHERE clause based on conditions
         $conditionsArr = [];
         foreach ($conditions as $key => $value) {
-            $conditionsArr[] = "$key LIKE '$value'";
+            if (is_int($value) || is_float($value))
+                $conditionsArr[] = "$key = $value";
+            else
+                $conditionsArr[] = "$key LIKE '$value'";
         }
         $query .= implode(" AND ", $conditionsArr);
     }

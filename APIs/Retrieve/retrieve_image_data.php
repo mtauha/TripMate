@@ -30,7 +30,10 @@ function retrieveImageData($con, $conditions = array(), $selectColumns = null)
         // Build the WHERE clause based on conditions
         $conditionsArr = [];
         foreach ($conditions as $key => $value) {
-            $conditionsArr[] = "$key = '$value'";
+            if (is_int($value) || is_float($value))
+                $conditionsArr[] = "$key = $value";
+            else
+                $conditionsArr[] = "$key = '$value'";
         }
         $query .= implode(" AND ", $conditionsArr);
         $query .= ";";
