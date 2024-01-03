@@ -32,7 +32,7 @@ $res = $stmt->execute();
 
 if ($res) {
     $arr["success"] = "true";
-    $arr["chat_id"] = $con->insert_id;
+    $arr["budget_id"] = $con->insert_id;
 } else {
     $arr["success"] = "false";
 }
