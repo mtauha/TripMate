@@ -41,7 +41,7 @@ TripMate is scalable, catering to both individual travelers and larger groups. I
 1. Create the **tripdb** database by running the `Database_Queries/Schema.sql` file in your preferred SQL editor, such as MySQL Workbench.
 2. Update your database connection in `APIs/connection.php` by adding the host IP address, username, password, and database name.
 3. Now update your host IP address at `app/src/main/res/xml/network_security_config.xml` file.
-4. And Lastly update IP address at `app\src\main\java\com\project\tripmate\mainapp\CommonFunctions.kt` file.
+4. And Lastly update IP address at `app/src/main/java/com/project/tripmate/mainapp/CommonFunctions.kt` file.
 
 ## Get Started
 
@@ -51,4 +51,5 @@ TripMate is scalable, catering to both individual travelers and larger groups. I
 
 TripMate is your ideal companion for dynamic and efficient travel planning. Download it today and explore the world hassle-free!
 
-*Note: Make sure you have MySQL server installed on your device before configuring the project.*
+*Note: Make sure you have MySQL server installed on your device before configuring the project.
+Note: If you are copying and pasting paths and its not working then convert '/' to '\' and try again.*
