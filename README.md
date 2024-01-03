@@ -51,5 +51,6 @@ TripMate is scalable, catering to both individual travelers and larger groups. I
 
 TripMate is your ideal companion for dynamic and efficient travel planning. Download it today and explore the world hassle-free!
 
-*Note: Make sure you have MySQL server installed on your device before configuring the project.
-Note: If you are copying and pasting paths and its not working then convert '/' to '\' and try again.*
+*Note: Make sure you have MySQL server installed on your device before configuring the project.*
+
+*Note: If you are copying and pasting paths and its not working then convert '/' to '' and try again.*
