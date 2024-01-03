@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mainapp.fragments.FragmentAccountInfo">
+
+    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FragmentAccountInfo">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/accountInfoLogoutButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="25dp"
+                    android:paddingRight="25dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:id="@+id/accountProfilePicture"
+                            android:layout_width="175dp"
+                            android:layout_height="175dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/account_button_selected" />
+
+                        <ImageView
+                            android:id="@+id/accountProfilePictureEdit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="35dp"
+                        android:text="First Name"
+                        android:textSize="26sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/search_box_background"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/accountPageFirstName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:paddingLeft="15dp"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/accountPageFirstNameEdit"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="15dp"
+                            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:text="Last Name"
+                        android:textSize="26sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/search_box_background"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/accountPageLastName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:inputType="text"
+                            android:paddingLeft="15dp"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/accountPageLastNameEdit"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="15dp"
+                            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:text="Email"
+                        android:textSize="26sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/search_box_background"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/accountPageEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="15dp"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/accountPageEmailEdit"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="15dp"
+                            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:text="Date Of Birth"
+                        android:textSize="26sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/search_box_background"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/accountPageDob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:inputType="date"
+                            android:paddingLeft="15dp"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/accountPageDobEdit"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="15dp"
+                            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:text="Phone Number"
+                        android:textSize="26sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/search_box_background"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/accountPagePhoneNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:paddingLeft="15dp"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/accountPagePhoneNumberEdit"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="15dp"
+                            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:text="City"
+                        android:textSize="26sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/search_box_background"
+                        android:orientation="horizontal">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/accountPageCity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:paddingLeft="15dp"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/accountPageCityEdit"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="15dp"
+                            app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/accountPageChangePassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Change Password"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="10dp"
+                            />
+                        <Button
+                            android:layout_gravity="right"
+                            android:id="@+id/logoutButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LOG OUT"/>
+
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/accountSaveChangesButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30sp"
+                        android:layout_marginBottom="80sp"
+                        android:text="Save Changes"
+                        android:textSize="20sp"
+                        android:visibility="invisible" />
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

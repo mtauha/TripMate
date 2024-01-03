@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/saveNoteHeading"
+            android:text="Heading"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="32dp"
+            />
+        <TextView
+            android:id="@+id/saveNoteDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="28dp"
+            android:text="Date"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:id="@+id/saveNoteBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Body"
+            android:layout_gravity="center"
+            android:textSize="24dp"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            android:text="________________________"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

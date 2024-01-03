@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/moneySpentReasonInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Reason"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"/>
+
+        <EditText
+            android:id="@+id/moneySpentAmountInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Amount Of Money Spent"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="25dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/moneyRecordAddButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADD"
+                android:layout_gravity="center"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/image_box_background"/>
+
+            <Button
+                android:id="@+id/moneyRecordCloseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CLOSE"
+                android:layout_gravity="center"
+                android:background="@drawable/image_box_background"/>
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="____________________________"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="28sp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/moneyRecordRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            tools:listitem="@layout/spent_money_view"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

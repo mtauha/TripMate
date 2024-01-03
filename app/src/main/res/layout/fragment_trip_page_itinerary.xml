@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mainapp.fragments.FragmentTripPageItinerary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Day 1"
+                    app:backgroundTint="@color/blue" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Day 2"
+                    app:backgroundTint="@color/dark_blue" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Day 3"
+                    app:backgroundTint="@color/blue" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Day 4"
+                    app:backgroundTint="@color/blue" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Day 5"
+                    app:backgroundTint="@color/blue" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@color/dark_blue"
+                        android:gravity="center"
+                        android:text="Day \n1"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="225dp"
+                        android:layout_height="100dp"
+                        android:background="@color/grey"
+                        android:gravity="center"
+                        android:text="NO PLANS MADE \nFOR THE DAY"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@color/dark_blue"
+                        android:gravity="center"
+                        android:text="Day \n2"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="225dp"
+                        android:layout_height="100dp"
+                        android:background="@color/grey"
+                        android:gravity="center"
+                        android:text="NO PLANS MADE \nFOR THE DAY"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@color/dark_blue"
+                        android:gravity="center"
+                        android:text="Day \n3"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="225dp"
+                        android:layout_height="100dp"
+                        android:background="@color/grey"
+                        android:gravity="center"
+                        android:text="NO PLANS MADE \nFOR THE DAY"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@color/dark_blue"
+                        android:gravity="center"
+                        android:text="Day \n4"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="225dp"
+                        android:layout_height="100dp"
+                        android:background="@color/grey"
+                        android:gravity="center"
+                        android:text="NO PLANS MADE \nFOR THE DAY"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@color/dark_blue"
+                        android:gravity="center"
+                        android:text="Day \n5"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="225dp"
+                        android:layout_height="100dp"
+                        android:background="@color/grey"
+                        android:gravity="center"
+                        android:text="NO PLANS MADE \nFOR THE DAY"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mainapp.fragments.FragmentNewTrip">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="330dp"
+            android:layout_height="550dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/newTripTripName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_box_background"
+                android:ems="10"
+                android:hint="Trip Name"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="4dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/newTripSourceCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_box_background"
+                android:hint="Source City"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="4dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/newTripDestinationCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_box_background"
+                android:hint="Destination City"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/newTripStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:clickable="false"
+                android:background="@drawable/search_box_background"
+                android:ems="10"
+                android:hint="Start Date"
+                android:inputType="date"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/newTripNumberOfPersons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_box_background"
+                android:ems="10"
+                android:hint="Number of Persons"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/newTripBudget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_box_background"
+                android:ems="10"
+                android:hint="Budget"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="4dp" />
+
+            <EditText
+                android:id="@+id/newTripNoOfDays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_box_background"
+                android:ems="10"
+                android:hint="Number of Days"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingTop="4dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/newTripCreateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:text="Create Trip"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/blue"
+            app:constraint_referenced_tags="10dp"
+            app:cornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
